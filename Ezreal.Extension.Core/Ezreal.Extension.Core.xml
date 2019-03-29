@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Ezreal.Extension.Core</name>
+    </assembly>
+    <members>
+        <member name="M:Ezreal.Extension.Core.StringExtension.IsNullOrEmpty(System.String)">
+            <summary>
+            指示指定的字符串是 <see langword="null" /> 还是<see cref="F:System.String.Empty"/> 字符串。
+            </summary>
+            <param name="value">要测试的字符串。</param>
+            <returns>如果参数<paramref name="value"/>的值为<see langword="null"/>或者等同于<see cref="F:System.String.Empty"/>的空字符串,则返回<see langword="true"/>,否则返回<see langword="false"/></returns>
+        </member>
+        <member name="M:Ezreal.Extension.Core.StringExtension.IsNullOrWhiteSpace(System.String)">
+            <summary>
+            指示指定的字符串是 <see langword="null" /> 还是<see cref="F:System.String.Empty"/> 字符串。
+            </summary>
+            <param name="value">要测试的字符串。</param>
+            <returns>如果参数<paramref name="value"/>的值为<see langword="null"/>或者等同于<see cref="F:System.String.Empty"/>的空字符串或者仅由空白字符组成,则返回<see langword="true"/>,否则返回<see langword="false"/></returns>
+        </member>
+        <member name="M:Ezreal.Extension.Core.TypeExtension.GetChildTypes(System.Type)">
+            <summary>
+            获取类型所在<see cref="T:System.Reflection.Assembly"/>中定义的子类
+            </summary>
+            <param name="type">需要查找子类的类型实例</param>
+            <returns></returns>
+        </member>
+        <member name="M:Ezreal.Extension.Core.TypeExtension.GetChildTypes(System.Type,System.Reflection.Assembly)">
+            <summary>
+            获取类型在指定<see cref="T:System.Reflection.Assembly"/>中定义的子类
+            </summary>
+            <param name="type">需要查找子类的类型实例</param>
+            <param name="assembly">需要查找的程序集</param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>
