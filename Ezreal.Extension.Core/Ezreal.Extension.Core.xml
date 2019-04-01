@@ -4,6 +4,95 @@
         <name>Ezreal.Extension.Core</name>
     </assembly>
     <members>
+        <member name="M:Ezreal.Extension.Core.GenericClassExtension.IsNull``1(``0)">
+            <summary>
+            指示指定的引用类型对象是否为<see langword="null"/>
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Ezreal.Extension.Core.GenericStructExtension.IsDefault``1(``0)">
+            <summary>
+            指示指定的值类型是否是它的默认值
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="struct"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Ezreal.Extension.Core.GenericStructExtension.IsNull``1(System.Nullable{``0})">
+            <summary>
+            指示指定的可空值类型对象是否为<see langword="null"/>
+            </summary>
+            <param name="nullableStruct"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Ezreal.Extension.Core.GenericStructExtension.IsNullOrDefault``1(System.Nullable{``0})">
+            <summary>
+            指示指定的可空值类型对象是否为<see langword="null"/>或其默认值<see langword="defalut"/>(<typeparamref name="T"/>)
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="nullableStruct"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Ezreal.Extension.Core.IEnumerableExtension.IsNullOrNoItems``1(System.Collections.Generic.IEnumerable{``0})">
+            <summary>
+            指示指定的序列对象是 <see langword="null"/> 还是没有元素的空集合
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="collection">将被校验的序列实例</param>
+            <returns>如果<paramref name="collection"/> 参数为 <see langword="null"/> 或没有<typeparamref name="T"/>实例的空集合，则为 <see langword="true"/>；否则为 <see langword="false"/>。</returns>
+        </member>
+        <member name="M:Ezreal.Extension.Core.IEnumerableExtension.PadLeft``1(System.Collections.Generic.IEnumerable{``0},System.Int32)">
+            <summary>
+            返回使用默认元素将序列向列首补齐得到的新序列
+            </summary>
+            <param name="collection">原有序列</param>
+            <param name="count">新序列的元素总数</param>
+            <param name="item">用于补齐的元素</param>
+            <returns></returns>
+        </member>
+        <member name="M:Ezreal.Extension.Core.IEnumerableExtension.PadRight``1(System.Collections.Generic.IEnumerable{``0},System.Int32)">
+            <summary>
+            返回使用默认元素将序列向列尾补齐得到的新序列
+            </summary>
+            <param name="collection">原有序列</param>
+            <param name="count">新序列的元素总数</param>
+            <param name="item">用于补齐的元素</param>
+            <returns></returns>
+        </member>
+        <member name="M:Ezreal.Extension.Core.IEnumerableExtension.PadLeft``1(System.Collections.Generic.IEnumerable{``0},System.Int32,``0)">
+            <summary>
+            返回使用指定元素将序列向列首补齐得到的新序列
+            </summary>
+            <param name="collection">原有序列</param>
+            <param name="count">新序列的元素总数</param>
+            <param name="item">用于补齐的元素</param>
+            <returns></returns>
+        </member>
+        <member name="M:Ezreal.Extension.Core.IEnumerableExtension.PadRight``1(System.Collections.Generic.IEnumerable{``0},System.Int32,``0)">
+            <summary>
+            返回使用指定元素将序列向列尾补齐得到的新序列
+            </summary>
+            <param name="collection">原有序列</param>
+            <param name="count">新序列的元素总数</param>
+            <param name="item">用于补齐的元素</param>
+            <returns></returns>
+        </member>
+        <member name="M:Ezreal.Extension.Core.DataSetExtension.IsNullOrNoTables(System.Data.DataSet)">
+            <summary>
+            指示指定的<see cref="T:System.Data.DataSet"/>对象是 <see langword="null"/> 还是没有<see cref="T:System.Data.DataTable"/>的空集合
+            </summary>
+            <param name="ds">将被校验的<see cref="T:System.Data.DataSet"/>实例</param>
+            <returns>如果<paramref name="ds"/> 参数为 <see langword="null"/> 或没有<see cref="T:System.Data.DataTable"/>的空集合，则为 <see langword="true"/>；否则为 <see langword="false"/>。</returns>
+        </member>
+        <member name="M:Ezreal.Extension.Core.DataTableExtension.IsNullOrNoRows(System.Data.DataTable)">
+            <summary>
+            指示指定的<see cref="T:System.Data.DataTable"/>对象是 <see langword="null"/> 还是没有<see cref="T:System.Data.DataRow"/>的空集合
+            </summary>
+            <param name="dt">将被校验的<see cref="T:System.Data.DataTable"/>实例</param>
+            <returns>如果<paramref name="dt"/> 参数为 <see langword="null"/> 或没有<see cref="T:System.Data.DataRow"/>的空集合，则为 <see langword="true"/>；否则为 <see langword="false"/>。</returns>
+        </member>
         <member name="M:Ezreal.Extension.Core.StringExtension.IsNullOrEmpty(System.String)">
             <summary>
             指示指定的字符串是 <see langword="null" /> 还是<see cref="F:System.String.Empty"/> 字符串。
@@ -17,6 +106,13 @@
             </summary>
             <param name="value">要测试的字符串。</param>
             <returns>如果参数<paramref name="value"/>的值为<see langword="null"/>或者等同于<see cref="F:System.String.Empty"/>的空字符串或者仅由空白字符组成,则返回<see langword="true"/>,否则返回<see langword="false"/></returns>
+        </member>
+        <member name="M:Ezreal.Extension.Core.StringExtension.IsArabicNumber(System.String)">
+            <summary>
+            指示指定的<see cref="T:System.String"/>对象是否是纯阿拉伯数字的组合
+            </summary>
+            <param name="text">要测试的<see cref="T:System.String"/>实例</param>
+            <returns>如果<paramref name="text"/> 参数为是纯数字则为 <see langword="true"/>；否则为  <see langword="false"/>。</returns>
         </member>
         <member name="M:Ezreal.Extension.Core.TypeExtension.GetChildTypes(System.Type)">
             <summary>
