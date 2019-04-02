@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace Ezreal.Extension.Core
@@ -30,11 +31,28 @@ namespace Ezreal.Extension.Core
             {
                 throw new ArgumentException("message", nameof(text));
             }
-            return System.Text.RegularExpressions.Regex.IsMatch(text.Trim(), @"^[0-9]*$");
+            //return System.Text.RegularExpressions.Regex.IsMatch(text.Trim(), @"^[0-9]*$");
+            for (int i = 0; i < text.Length; i++)
+            {
+                if (text[i] < '0' || text[i] > '9')
+                {
+                    return false;
+                }
+            }
+            return true;
         }
 
-
+        /// <summary>
+        /// 转换指定的字符串为目标数字类型
+        /// <para>
+        /// 当目标类型为<see cref="Byte"/>、<see cref="SByte"/>、<see cref="Int16"/>、<see cref="UInt16"/>、<see cref="Int32"/>、<see cref="UInt32"/>、<see cref="Int64"/>、<see cref="UInt64"/>时将要转换的字符串不应包含小数部分
+        /// </para>
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="text"></param>
+        /// <returns></returns>
         public static T ToNumber<T>(this string text)
+            where T : struct, IComparable, IComparable<T>, IConvertible, IEquatable<T>, IFormattable
         {
             if (string.IsNullOrWhiteSpace(text))
             {

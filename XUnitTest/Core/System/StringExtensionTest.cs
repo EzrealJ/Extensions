@@ -19,7 +19,7 @@ namespace XUnitTest.Core.System
         [Theory]
         [InlineData(@"123", true)]
         [InlineData(@"12.3", false)]
-        [InlineData(@"123 ", true)]
+        [InlineData(@"123 ", false)]
         void IsArabicNumber(string value, bool result)
         {
             Assert.True(value.IsArabicNumber() == result);
