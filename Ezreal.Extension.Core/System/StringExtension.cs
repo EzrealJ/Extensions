@@ -60,5 +60,16 @@ namespace Ezreal.Extension.Core
             }
             return (T)Convert.ChangeType(text, typeof(T));
         }
+
+        /// <summary>
+        /// 尝试将字符串转化成<see cref="Guid"/>
+        /// </summary>
+        /// <param name="text">待转换的<see cref="string"/>实例</param>
+        /// <param name="guid">承载转换后值的<see cref="Guid"/>实例</param>
+        /// <returns>转换成功时返回<see langword="true"/>并可从<paramref name="guid"/>获取转换后的<see cref="Guid"/>实例</returns>
+        public static bool TryParseGuid(this string text,out Guid guid)
+        {
+            return Guid.TryParse(text, out guid);
+        }
     }
 }

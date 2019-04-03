@@ -23,4 +23,5 @@ namespace Ezreal.Extension.Core
                 return true;
         }
     }
-}
+} 
+

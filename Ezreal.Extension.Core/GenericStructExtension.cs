@@ -61,5 +61,6 @@ namespace Ezreal.Extension.Core
                 throw new Exception($"Enumeration is not based on {typeof(TUnderlyingType).Name}");
             }
         }
+
     }
 }

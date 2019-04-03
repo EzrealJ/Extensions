@@ -51,6 +51,18 @@
             <param name="nullableStruct"></param>
             <returns></returns>
         </member>
+        <member name="M:Ezreal.Extension.Core.GenericStructExtension.ToEnum``2(``0)">
+            <summary>
+            将基础类型的值转换为指定枚举的值
+            <para>
+            可转换的类型包括<see cref="T:System.Byte"/>、<see cref="T:System.SByte"/>、<see cref="T:System.Int16"/>、<see cref="T:System.UInt16"/>、<see cref="T:System.Int32"/>、<see cref="T:System.UInt32"/>、<see cref="T:System.Int64"/>、<see cref="T:System.UInt64"/>
+            </para>
+            </summary>
+            <typeparam name="TUnderlyingType">参数可以是<see cref="T:System.Byte"/>、<see cref="T:System.SByte"/>、<see cref="T:System.Int16"/>、<see cref="T:System.UInt16"/>、<see cref="T:System.Int32"/>、<see cref="T:System.UInt32"/>、<see cref="T:System.Int64"/>、<see cref="T:System.UInt64"/>其中的一种</typeparam>
+            <typeparam name="TEnum">参数是枚举类型</typeparam>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
         <member name="M:Ezreal.Extension.Core.IEnumerableExtension.IsNullOrNoItems``1(System.Collections.Generic.IEnumerable{``0})">
             <summary>
             指示指定的序列对象是 <see langword="null"/> 还是没有元素的空集合
@@ -95,6 +107,15 @@
             <param name="item">用于补齐的元素</param>
             <returns></returns>
         </member>
+        <member name="M:Ezreal.Extension.Core.IEnumerableExtension.Join``1(System.Collections.Generic.IEnumerable{``0},System.String,System.String)">
+            <summary>
+            将集合连接为带分隔符的字符串
+            </summary>
+            <typeparam name="T">集合元素类型</typeparam>
+            <param name="collection">集合</param>
+            <param name="quotes">引号，默认不带引号，范例：单引号 "'"</param>
+            <param name="separator">分隔符，默认使用逗号分隔</param>
+        </member>
         <member name="M:Ezreal.Extension.Core.DataSetExtension.IsNullOrNoTables(System.Data.DataSet)">
             <summary>
             指示指定的<see cref="T:System.Data.DataSet"/>对象是 <see langword="null"/> 还是没有<see cref="T:System.Data.DataTable"/>的空集合
@@ -108,18 +129,6 @@
             </summary>
             <param name="dt">将被校验的<see cref="T:System.Data.DataTable"/>实例</param>
             <returns>如果<paramref name="dt"/> 参数为 <see langword="null"/> 或没有<see cref="T:System.Data.DataRow"/>的空集合，则为 <see langword="true"/>；否则为 <see langword="false"/>。</returns>
-        </member>
-        <member name="M:Ezreal.Extension.Core.EnumExtension.ToEnum``2(``0)">
-            <summary>
-            将基础类型的值转换为指定枚举的值
-            <para>
-            可转换的类型包括<see cref="T:System.Byte"/>、<see cref="T:System.SByte"/>、<see cref="T:System.Int16"/>、<see cref="T:System.UInt16"/>、<see cref="T:System.Int32"/>、<see cref="T:System.UInt32"/>、<see cref="T:System.Int64"/>、<see cref="T:System.UInt64"/>
-            </para>
-            </summary>
-            <typeparam name="TUnderlyingType"><see cref="T:System.Byte"/>、<see cref="T:System.SByte"/>、<see cref="T:System.Int16"/>、<see cref="T:System.UInt16"/>、<see cref="T:System.Int32"/>、<see cref="T:System.UInt32"/>、<see cref="T:System.Int64"/>、<see cref="T:System.UInt64"/>其中的一种</typeparam>
-            <typeparam name="TEnum"></typeparam>
-            <param name="value"></param>
-            <returns></returns>
         </member>
         <member name="M:Ezreal.Extension.Core.EnumExtension.GetUnderlyingValue``1(System.Enum)">
             <summary>
@@ -168,6 +177,14 @@
             <typeparam name="T"></typeparam>
             <param name="text"></param>
             <returns></returns>
+        </member>
+        <member name="M:Ezreal.Extension.Core.StringExtension.TryParseGuid(System.String,System.Guid@)">
+            <summary>
+            尝试将字符串转化成<see cref="T:System.Guid"/>
+            </summary>
+            <param name="text">待转换的<see cref="T:System.String"/>实例</param>
+            <param name="guid">承载转换后值的<see cref="T:System.Guid"/>实例</param>
+            <returns>转换成功时返回<see langword="true"/>并可从<paramref name="guid"/>获取转换后的<see cref="T:System.Guid"/>实例</returns>
         </member>
         <member name="M:Ezreal.Extension.Core.TypeExtension.GetChildTypes(System.Type)">
             <summary>
