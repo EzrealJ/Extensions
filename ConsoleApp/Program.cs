@@ -8,7 +8,9 @@ namespace ConsoleApp
     {
         static void Main(string[] args)
         {
-
+            int? a = null;
+            int b = 1;
+            Console.WriteLine(a);
         }
     }
 }
