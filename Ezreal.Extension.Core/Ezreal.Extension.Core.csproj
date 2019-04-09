@@ -6,8 +6,19 @@
     <Authors>Ezreal</Authors>
     <Company />
     <Product>Ezreal.Extension</Product>
-    <Description>Ezreal.Extension.Core只包含最基本的扩展</Description>
+    <Description>Ezreal.Extension.Core只包含基本的扩展</Description>
     <PackageLicenseUrl>https://github.com/EzrealJ/Extensions/blob/master/LICENSE</PackageLicenseUrl>
+    <PackageIconUrl>https://raw.githubusercontent.com/EzrealJ/Extensions/master/Ezreal.Extension.Core/Ezreal.Extension.ico</PackageIconUrl>
+    <PackageProjectUrl>https://github.com/EzrealJ/Extensions</PackageProjectUrl>
+    <PackageTags>Extensions</PackageTags>
+    <PackageReleaseNotes>Ezreal.Extension.Core只包含基本的扩展</PackageReleaseNotes>
+    <FileVersion>0.1.1.1</FileVersion>
+    <AssemblyVersion>0.1.1.1</AssemblyVersion>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+    <RepositoryUrl>https://github.com/EzrealJ/Extensions</RepositoryUrl>
+    <Copyright>Ezreal</Copyright>
+    <Version>0.1.1.1</Version>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|netstandard2.0|AnyCPU'">
