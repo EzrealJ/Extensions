@@ -20,7 +20,7 @@ namespace Ezreal.Extension.Core
         /// <summary>
         /// 指示指定的可空值类型对象是否为<see langword="null"/>
         /// <para>
-        /// 此扩展等同于<see cref="Nullable{T}.HasValue"/>
+        /// 此扩展等同于<see langword="!"/><see cref="Nullable{T}.HasValue"/>
         /// </para>
         /// </summary>
         /// <param name="nullableStruct"></param>
@@ -46,8 +46,8 @@ namespace Ezreal.Extension.Core
         /// </para>
         /// </summary>
         /// <typeparam name="TUnderlyingType">参数可以是<see cref="Byte"/>、<see cref="SByte"/>、<see cref="Int16"/>、<see cref="UInt16"/>、<see cref="Int32"/>、<see cref="UInt32"/>、<see cref="Int64"/>、<see cref="UInt64"/>其中的一种</typeparam>
-        /// <typeparam name="TEnum">参数是枚举类型</typeparam>
-        /// <param name="value"></param>
+        /// <typeparam name="TEnum">目标枚举类型</typeparam>
+        /// <param name="value">待转换的值</param>
         /// <returns></returns>
         public static TEnum ToEnum<TUnderlyingType, TEnum>(this TUnderlyingType value)
     where TEnum : Enum /*struct, IComparable, IConvertible, IFormattable*/
