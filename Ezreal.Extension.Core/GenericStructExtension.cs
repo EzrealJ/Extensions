@@ -20,12 +20,12 @@ namespace Ezreal.Extension.Core
         /// <summary>
         /// 指示指定的可空值类型对象是否为<see langword="null"/>
         /// <para>
-        /// 此扩展等同于<see langword="!"/><see cref="Nullable{T}.HasValue"/>
+        /// 此扩展等同于<see langword="!"/><see cref="T?.HasValue"/>
         /// </para>
         /// </summary>
         /// <param name="nullableStruct"></param>
         /// <returns></returns>
-        public static bool IsNull<T>(this Nullable<T> nullableStruct) where T : struct
+        public static bool IsNull<T>(this T? nullableStruct) where T : struct
         {
             return nullableStruct == null;
         }
@@ -35,7 +35,7 @@ namespace Ezreal.Extension.Core
         /// <typeparam name="T"></typeparam>
         /// <param name="nullableStruct"></param>
         /// <returns></returns>
-        public static bool IsNullOrDefault<T>(this Nullable<T> nullableStruct) where T : struct
+        public static bool IsNullOrDefault<T>(this T? nullableStruct) where T : struct
         {
             return nullableStruct.IsNull() || nullableStruct.Value.IsDefault();
         }

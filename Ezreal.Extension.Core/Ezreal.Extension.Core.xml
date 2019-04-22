@@ -39,6 +39,9 @@
         <member name="M:Ezreal.Extension.Core.GenericStructExtension.IsNull``1(System.Nullable{``0})">
             <summary>
             指示指定的可空值类型对象是否为<see langword="null"/>
+            <para>
+            此扩展等同于<see langword="!"/><see cref="!:T?.HasValue"/>
+            </para>
             </summary>
             <param name="nullableStruct"></param>
             <returns></returns>
@@ -59,8 +62,8 @@
             </para>
             </summary>
             <typeparam name="TUnderlyingType">参数可以是<see cref="T:System.Byte"/>、<see cref="T:System.SByte"/>、<see cref="T:System.Int16"/>、<see cref="T:System.UInt16"/>、<see cref="T:System.Int32"/>、<see cref="T:System.UInt32"/>、<see cref="T:System.Int64"/>、<see cref="T:System.UInt64"/>其中的一种</typeparam>
-            <typeparam name="TEnum">参数是枚举类型</typeparam>
-            <param name="value"></param>
+            <typeparam name="TEnum">目标枚举类型</typeparam>
+            <param name="value">待转换的值</param>
             <returns></returns>
         </member>
         <member name="M:Ezreal.Extension.Core.IEnumerableExtension.IsNullOrNoItems``1(System.Collections.Generic.IEnumerable{``0})">

@@ -20,6 +20,6 @@ namespace Ezreal.Extension.Core
         /// <param name="type">需要查找子类的类型实例</param>
         /// <param name="assembly">需要查找的程序集</param>
         /// <returns></returns>
-        public static IEnumerable<Type> GetChildTypes(this Type type, Assembly assembly) => assembly.GetTypes().Where(t => t.IsSubclassOf(type));
+        public static IEnumerable<Type> GetChildTypes(this Type type, Assembly assembly) => assembly.GetTypes().Where(t => t != type && type.IsAssignableFrom(t));
     }
 }
