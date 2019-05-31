@@ -105,7 +105,7 @@ namespace Ezreal.Extension.Core
         /// <param name="collection">集合</param>
         /// <param name="quotes">引号，默认不带引号，范例：单引号 "'"</param>
         /// <param name="separator">分隔符，默认使用逗号分隔</param>
-        public static string Join<T>(this IEnumerable<T> collection, string quotes = "", string separator = ",")
+        public static string JoinAsString<T>(this IEnumerable<T> collection, string quotes = "", string separator = ",")
         {
             if (collection == null)
             {

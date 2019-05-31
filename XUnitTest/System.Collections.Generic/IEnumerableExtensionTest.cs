@@ -47,7 +47,7 @@ namespace XUnitTest.System.Collections.Generic
         void Join()
         {
             List<string> a = new List<string>() { "AAA","BBB" };
-            a.Join("'").ShouldBe("'AAA','BBB'");
+            a.JoinAsString("'").ShouldBe("'AAA','BBB'");
         }
     }
 }
