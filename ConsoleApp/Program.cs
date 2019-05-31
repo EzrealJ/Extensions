@@ -1,6 +1,7 @@
 ﻿using System;
 using System.IO;
 using System.Threading;
+using Ezreal.Extension.Core;
 
 namespace ConsoleApp
 {
@@ -8,9 +9,8 @@ namespace ConsoleApp
     {
         static void Main(string[] args)
         {
-            int? a = null;
-            int b = 1;
-            Console.WriteLine(a);
+            var a = "123";
+            Console.WriteLine(a.IsArabicNumber());
         }
     }
 }
