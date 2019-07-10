@@ -9,6 +9,7 @@ namespace ConsoleApp
     {
         static void Main(string[] args)
         {
+            var q = BitConverter.GetBytes(65535u);
             var a = "123";
             Console.WriteLine(a.IsArabicNumber());
         }

@@ -110,7 +110,7 @@
             <param name="item">用于补齐的元素</param>
             <returns></returns>
         </member>
-        <member name="M:Ezreal.Extension.Core.IEnumerableExtension.Join``1(System.Collections.Generic.IEnumerable{``0},System.String,System.String)">
+        <member name="M:Ezreal.Extension.Core.IEnumerableExtension.JoinAsString``1(System.Collections.Generic.IEnumerable{``0},System.String,System.String)">
             <summary>
             将集合连接为带分隔符的字符串
             </summary>
