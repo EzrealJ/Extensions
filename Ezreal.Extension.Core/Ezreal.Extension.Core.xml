@@ -69,6 +69,9 @@
         <member name="M:Ezreal.Extension.Core.IEnumerableExtension.IsNullOrNoItems``1(System.Collections.Generic.IEnumerable{``0})">
             <summary>
             指示指定的序列对象是 <see langword="null"/> 还是没有元素的空集合
+            <para>
+            等同于collection == <see langword="null"/> || !collection.Any()
+            </para>
             </summary>
             <typeparam name="T"></typeparam>
             <param name="collection">将被校验的序列实例</param>
@@ -122,6 +125,9 @@
         <member name="M:Ezreal.Extension.Core.DataSetExtension.IsNullOrNoTables(System.Data.DataSet)">
             <summary>
             指示指定的<see cref="T:System.Data.DataSet"/>对象是 <see langword="null"/> 还是没有<see cref="T:System.Data.DataTable"/>的空集合
+            <para>
+            等同于ds == <see langword="null"/> || ds.Tables.Count &lt;= 0
+            </para>
             </summary>
             <param name="ds">将被校验的<see cref="T:System.Data.DataSet"/>实例</param>
             <returns>如果<paramref name="ds"/> 参数为 <see langword="null"/> 或没有<see cref="T:System.Data.DataTable"/>的空集合，则为 <see langword="true"/>；否则为 <see langword="false"/>。</returns>
@@ -129,6 +135,9 @@
         <member name="M:Ezreal.Extension.Core.DataTableExtension.IsNullOrNoRows(System.Data.DataTable)">
             <summary>
             指示指定的<see cref="T:System.Data.DataTable"/>对象是 <see langword="null"/> 还是没有<see cref="T:System.Data.DataRow"/>的空集合
+            <para>
+            等同于dt == <see langword="null"/> || dt.Rows.Count &lt;= 0
+            </para>
             </summary>
             <param name="dt">将被校验的<see cref="T:System.Data.DataTable"/>实例</param>
             <returns>如果<paramref name="dt"/> 参数为 <see langword="null"/> 或没有<see cref="T:System.Data.DataRow"/>的空集合，则为 <see langword="true"/>；否则为 <see langword="false"/>。</returns>
