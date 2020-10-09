@@ -9,19 +9,16 @@ namespace Ezreal.Extension.Core
     {
         /// <summary>
         /// 指示指定的序列对象是 <see langword="null"/> 还是没有元素的空集合
+        /// <para>
+        /// 等同于collection == <see langword="null"/> || !collection.Any()
+        /// </para>
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <param name="collection">将被校验的序列实例</param>
         /// <returns>如果<paramref name="collection"/> 参数为 <see langword="null"/> 或没有<typeparamref name="T"/>实例的空集合，则为 <see langword="true"/>；否则为 <see langword="false"/>。</returns>
         public static bool IsNullOrNoItems<T>(this IEnumerable<T> collection)
         {
-            if (collection != null)
-                if (collection.Count() > 0)
-                    return false;
-                else
-                    return true;
-            else
-                return true;
+            return collection == null || !collection.Any();
         }
 
 
@@ -62,14 +59,16 @@ namespace Ezreal.Extension.Core
             {
                 throw new ArgumentNullException(nameof(collection));
             }
-            int collectionCount = collection.Count();
+
+            var enumerable = collection as T[] ?? collection.ToArray();
+            int  collectionCount = enumerable.Count();
 
             List<T> tempArray = new List<T>();          
             for (int i = 0; i < count - collectionCount; i++)
             {
                 tempArray.Add(item);
             }
-            tempArray.AddRange(collection);
+            tempArray.AddRange(enumerable);
             return tempArray;
         }
 
@@ -86,10 +85,12 @@ namespace Ezreal.Extension.Core
             {
                 throw new ArgumentNullException(nameof(collection));
             }
-            int collectionCount = collection.Count();
+
+            var enumerable = collection as T[] ?? collection.ToArray();
+            int collectionCount  = enumerable.Count();
 
             List<T> tempArray = new List<T>();
-            tempArray.AddRange(collection);
+            tempArray.AddRange(enumerable);
             for (int i = 0; i < count - collectionCount; i++)
             {
                 tempArray.Add(item);
@@ -116,11 +117,7 @@ namespace Ezreal.Extension.Core
             {
                 result.AppendFormat("{0}{1}{0}{2}", quotes, each, separator);
             }
-            if (separator == "")
-            {
-                return result.ToString();
-            }
-            return result.ToString().TrimEnd(separator.ToCharArray());
+            return separator == "" ? result.ToString() : result.ToString().TrimEnd(separator.ToCharArray());
         }
     }
 }

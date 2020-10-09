@@ -32,13 +32,15 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Update="Ezreal.Extension.Core.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
+    <Compile Remove="System.IO\**" />
+    <EmbeddedResource Remove="System.IO\**" />
+    <None Remove="System.IO\**" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="System.IO\" />
+    <None Update="Ezreal.Extension.Core.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 
 </Project>

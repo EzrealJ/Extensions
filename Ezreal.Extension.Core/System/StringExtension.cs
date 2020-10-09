@@ -32,14 +32,7 @@ namespace Ezreal.Extension.Core
                 throw new ArgumentException("message", nameof(text));
             }
             //return System.Text.RegularExpressions.Regex.IsMatch(text.Trim(), @"^[0-9]*$");
-            for (int i = 0; i < text.Length; i++)
-            {
-                if (text[i] < '0' || text[i] > '9')
-                {
-                    return false;
-                }
-            }
-            return true;
+            return text.All(t => t >= '0' && t <= '9');
         }
 
         /// <summary>

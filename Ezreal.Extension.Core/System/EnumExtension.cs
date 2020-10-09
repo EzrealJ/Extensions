@@ -18,14 +18,9 @@ namespace Ezreal.Extension.Core
         /// <returns></returns>
         public static T GetUnderlyingValue<T>(this Enum value) where T : struct, IComparable, IComparable<T>, IConvertible, IEquatable<T>, IFormattable
         {
-            if (Enum.GetUnderlyingType(value.GetType()) == typeof(T))
-            {
-                return (T)(value as ValueType);
-            }
-            else
-            {
-                throw new Exception($"Enumeration is not based on {typeof(T).Name}");
-            }
+            return Enum.GetUnderlyingType(value.GetType()) == typeof(T)
+                ? (T) (value as ValueType)
+                : throw new Exception($"Enumeration is not based on {typeof(T).Name}");
         }
 
         /// <summary>
@@ -48,7 +43,7 @@ namespace Ezreal.Extension.Core
             {
                 return name;
             }
-            return attribute == null ? null : attribute.Description;
+            return attribute?.Description;
         }
     }
 }
