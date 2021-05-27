@@ -5,10 +5,13 @@ using System.Text;
 
 namespace Ezreal.Extension.Core
 {
+    /// <summary>
+    /// 通用值类型扩展
+    /// </summary>
     public static class GenericStructExtension
     {
         /// <summary>
-        /// 指示指定的值类型是否是它的默认值
+        /// 指示指定的值类型是它的默认值
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <param name="struct"></param>
@@ -17,10 +20,21 @@ namespace Ezreal.Extension.Core
         {
             return @struct.Equals(default(T));
         }
+
         /// <summary>
-        /// 指示指定的可空值类型对象是否为<see langword="null"/>
+        /// 指示指定的值类型不是它的默认值
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="struct"></param>
+        /// <returns></returns>
+        public static bool NotDefault<T>(this T @struct) where T : struct
+        {
+            return !IsDefault(@struct);
+        }
+        /// <summary>
+        /// 指示指定的可空值类型对象为<see langword="null"/>
         /// <para>
-        /// 此扩展等同于<see langword="!"/><see cref="T?.HasValue"/>
+        /// 此扩展等同于<see langword="!"/><see cref="Nullable{T}.HasValue"/>
         /// </para>
         /// </summary>
         /// <param name="nullableStruct"></param>
@@ -30,7 +44,7 @@ namespace Ezreal.Extension.Core
             return nullableStruct == null;
         }
         /// <summary>
-        /// 指示指定的可空值类型对象是否为<see langword="null"/>或其默认值<see langword="defalut"/>(<typeparamref name="T"/>)
+        /// 指示指定的可空值类型对象为<see langword="null"/>或其默认值<see langword="defalut"/>(<typeparamref name="T"/>)
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <param name="nullableStruct"></param>
@@ -38,6 +52,17 @@ namespace Ezreal.Extension.Core
         public static bool IsNullOrDefault<T>(this T? nullableStruct) where T : struct
         {
             return nullableStruct.IsNull() || nullableStruct.Value.IsDefault();
+        }
+
+        /// <summary>
+        /// 指示指定的可空值类型不为空且不是其基类型的默认值
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="struct"></param>
+        /// <returns></returns>
+        public static bool HasNotDefaultValue<T>(this T? @struct) where T : struct
+        {
+            return !IsNullOrDefault(@struct);
         }
         /// <summary>
         /// 将基础类型的值转换为指定枚举的值

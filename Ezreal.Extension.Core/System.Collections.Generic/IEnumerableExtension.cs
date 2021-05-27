@@ -5,6 +5,9 @@ using System.Text;
 
 namespace Ezreal.Extension.Core
 {
+    /// <summary>
+    /// <see cref="IEnumerable{T}"/>类型的扩展
+    /// </summary>
     public static class IEnumerableExtension
     {
         /// <summary>
@@ -21,13 +24,23 @@ namespace Ezreal.Extension.Core
             return collection == null || !collection.Any();
         }
 
+        /// <summary>
+        /// 指示指定的序列对象是是否包含元素
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="collection"></param>
+        /// <returns></returns>
+        public static bool HasItems<T>(this IEnumerable<T> collection)
+        {
+            return !IsNullOrNoItems(collection);
+        }
+
 
         /// <summary>
         /// 返回使用默认元素将序列向列首补齐得到的新序列
         /// </summary>
         /// <param name="collection">原有序列</param>
         /// <param name="count">新序列的元素总数</param>
-        /// <param name="item">用于补齐的元素</param>
         /// <returns></returns>
         public static IEnumerable<T> PadLeft<T>(this IEnumerable<T> collection, int count)
         {
@@ -43,7 +56,7 @@ namespace Ezreal.Extension.Core
         /// <returns></returns>
         public static IEnumerable<T> PadRight<T>(this IEnumerable<T> collection, int count)
         {
-            return collection.PadRight(count, default(T));
+            return collection.PadRight(count, default);
         }
 
         /// <summary>
@@ -60,15 +73,14 @@ namespace Ezreal.Extension.Core
                 throw new ArgumentNullException(nameof(collection));
             }
 
-            var enumerable = collection as T[] ?? collection.ToArray();
-            int  collectionCount = enumerable.Count();
-
-            List<T> tempArray = new List<T>();          
-            for (int i = 0; i < count - collectionCount; i++)
+            int collectionCount = collection.Count();
+            int padLength = count - collectionCount;
+            List<T> tempArray = new List<T>();
+            for (int i = 0; i < padLength; i++)
             {
                 tempArray.Add(item);
             }
-            tempArray.AddRange(enumerable);
+            tempArray.AddRange(collection);
             return tempArray;
         }
 
@@ -87,14 +99,14 @@ namespace Ezreal.Extension.Core
             }
 
             var enumerable = collection as T[] ?? collection.ToArray();
-            int collectionCount  = enumerable.Count();
+            int collectionCount = enumerable.Count();
 
             List<T> tempArray = new List<T>();
             tempArray.AddRange(enumerable);
             for (int i = 0; i < count - collectionCount; i++)
             {
                 tempArray.Add(item);
-            }           
+            }
             return tempArray;
         }
 

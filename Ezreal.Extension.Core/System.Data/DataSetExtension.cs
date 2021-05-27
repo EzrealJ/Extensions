@@ -5,6 +5,9 @@ using System.Data;
 
 namespace Ezreal.Extension.Core
 {
+    /// <summary>
+    /// <see cref="DataSet"/>类型的扩展
+    /// </summary>
     public static class DataSetExtension
     {
         /// <summary>

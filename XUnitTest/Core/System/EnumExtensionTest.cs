@@ -19,7 +19,7 @@ namespace XUnitTest.Core.System
             C = 3,
         }
 
-        public enum Enum2:byte
+        public enum Enum2 : byte
         {
             [Description("A1")]
             A = 1,
@@ -29,7 +29,7 @@ namespace XUnitTest.Core.System
             C = 3,
         }
         [Fact]
-        void GetUnderlyingValue()
+        public void GetUnderlyingValue()
         {
             Enum1 enum1 = Enum1.B;
             enum1.GetUnderlyingValue<int>().ShouldBe(2);
@@ -37,12 +37,18 @@ namespace XUnitTest.Core.System
             enum2.GetUnderlyingValue<byte>().ShouldBe((byte)3);
         }
         [Fact]
-        void GetDescription()
+        public void GetDescription()
         {
             Enum1 enum1 = Enum1.B;
             enum1.GetDescription().ShouldBe("B2");
             Enum1 enum2 = Enum1.C;
             enum2.GetDescription(false).ShouldBeNull();
+        }
+
+        [Fact]
+        public void ToEnum()
+        {
+            1.ToEnum<int,Enum1>().ShouldBe(Enum1.A);
         }
     }
 }

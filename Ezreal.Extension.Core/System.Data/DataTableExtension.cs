@@ -6,6 +6,9 @@ using System.Data;
 
 namespace Ezreal.Extension.Core
 {
+    /// <summary>
+    /// <see cref="DataTable"/>类型的扩展
+    /// </summary>
     public static class DataTableExtension
     {
         /// <summary>

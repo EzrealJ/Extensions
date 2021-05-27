@@ -25,13 +25,23 @@ namespace XUnitTest.Core.System
 
         }
 
+        public class D<T>where T:B
+        {
+
+        }
+
         [Fact]
-        void GetChildTypes()
+      public  void GetChildTypes()
         {
             A a = new A();
             IEnumerable<Type> types = typeof(A).GetChildTypes();
             Assert.True(types.Count() == 2 && types.Contains(typeof(B)) && types.Contains(typeof(C)));
 
+        }
+        [Fact]
+        public void GetName()
+        {
+            Assert.Equal("D`1<C>", typeof(D<C>).GetName());
         }
     }
 }

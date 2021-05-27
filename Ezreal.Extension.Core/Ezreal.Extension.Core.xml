@@ -20,6 +20,43 @@
             </para>
             </summary>
         </member>
+        <member name="T:Ezreal.Extension.Core.ConcurrentCache`2">
+            <summary>
+            表示线程安全的内存缓存
+            </summary>
+            <typeparam name="TKey">键</typeparam>
+            <typeparam name="TValue">值</typeparam>
+        </member>
+        <member name="F:Ezreal.Extension.Core.ConcurrentCache`2.dictionary">
+            <summary>
+            线程安全字典
+            </summary>
+        </member>
+        <member name="M:Ezreal.Extension.Core.ConcurrentCache`2.#ctor">
+            <summary>
+            线程安全的内存缓存
+            </summary>
+        </member>
+        <member name="M:Ezreal.Extension.Core.ConcurrentCache`2.#ctor(System.Collections.Generic.IEqualityComparer{`0})">
+            <summary>
+            线程安全的内存缓存
+            </summary>
+            <param name="comparer">键的比较器</param>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:Ezreal.Extension.Core.ConcurrentCache`2.GetOrAdd(`0,System.Func{`0,`1})">
+            <summary>
+            获取或添加缓存
+            </summary>
+            <param name="key">键</param>
+            <param name="valueFactory">生成缓存内容的委托</param>
+            <returns></returns>
+        </member>
+        <member name="T:Ezreal.Extension.Core.GenericClassExtension">
+            <summary>
+            通用对象扩展
+            </summary>
+        </member>
         <member name="M:Ezreal.Extension.Core.GenericClassExtension.IsNull``1(``0)">
             <summary>
             指示指定的引用类型对象是否为<see langword="null"/>
@@ -28,9 +65,30 @@
             <param name="obj"></param>
             <returns></returns>
         </member>
+        <member name="M:Ezreal.Extension.Core.GenericClassExtension.NotNull``1(``0)">
+            <summary>
+            指示指定的引用类型对象是否不为<see langword="null"/>
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Ezreal.Extension.Core.GenericStructExtension">
+            <summary>
+            通用值类型扩展
+            </summary>
+        </member>
         <member name="M:Ezreal.Extension.Core.GenericStructExtension.IsDefault``1(``0)">
             <summary>
-            指示指定的值类型是否是它的默认值
+            指示指定的值类型是它的默认值
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="struct"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Ezreal.Extension.Core.GenericStructExtension.NotDefault``1(``0)">
+            <summary>
+            指示指定的值类型不是它的默认值
             </summary>
             <typeparam name="T"></typeparam>
             <param name="struct"></param>
@@ -38,9 +96,9 @@
         </member>
         <member name="M:Ezreal.Extension.Core.GenericStructExtension.IsNull``1(System.Nullable{``0})">
             <summary>
-            指示指定的可空值类型对象是否为<see langword="null"/>
+            指示指定的可空值类型对象为<see langword="null"/>
             <para>
-            此扩展等同于<see langword="!"/><see cref="!:T?.HasValue"/>
+            此扩展等同于<see langword="!"/><see cref="P:System.Nullable`1.HasValue"/>
             </para>
             </summary>
             <param name="nullableStruct"></param>
@@ -48,10 +106,18 @@
         </member>
         <member name="M:Ezreal.Extension.Core.GenericStructExtension.IsNullOrDefault``1(System.Nullable{``0})">
             <summary>
-            指示指定的可空值类型对象是否为<see langword="null"/>或其默认值<see langword="defalut"/>(<typeparamref name="T"/>)
+            指示指定的可空值类型对象为<see langword="null"/>或其默认值<see langword="defalut"/>(<typeparamref name="T"/>)
             </summary>
             <typeparam name="T"></typeparam>
             <param name="nullableStruct"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Ezreal.Extension.Core.GenericStructExtension.HasNotDefaultValue``1(System.Nullable{``0})">
+            <summary>
+            指示指定的可空值类型不为空且不是其基类型的默认值
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="struct"></param>
             <returns></returns>
         </member>
         <member name="M:Ezreal.Extension.Core.GenericStructExtension.ToEnum``2(``0)">
@@ -66,6 +132,11 @@
             <param name="value">待转换的值</param>
             <returns></returns>
         </member>
+        <member name="T:Ezreal.Extension.Core.IEnumerableExtension">
+            <summary>
+            <see cref="T:System.Collections.Generic.IEnumerable`1"/>类型的扩展
+            </summary>
+        </member>
         <member name="M:Ezreal.Extension.Core.IEnumerableExtension.IsNullOrNoItems``1(System.Collections.Generic.IEnumerable{``0})">
             <summary>
             指示指定的序列对象是 <see langword="null"/> 还是没有元素的空集合
@@ -77,13 +148,20 @@
             <param name="collection">将被校验的序列实例</param>
             <returns>如果<paramref name="collection"/> 参数为 <see langword="null"/> 或没有<typeparamref name="T"/>实例的空集合，则为 <see langword="true"/>；否则为 <see langword="false"/>。</returns>
         </member>
+        <member name="M:Ezreal.Extension.Core.IEnumerableExtension.HasItems``1(System.Collections.Generic.IEnumerable{``0})">
+            <summary>
+            指示指定的序列对象是是否包含元素
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="collection"></param>
+            <returns></returns>
+        </member>
         <member name="M:Ezreal.Extension.Core.IEnumerableExtension.PadLeft``1(System.Collections.Generic.IEnumerable{``0},System.Int32)">
             <summary>
             返回使用默认元素将序列向列首补齐得到的新序列
             </summary>
             <param name="collection">原有序列</param>
             <param name="count">新序列的元素总数</param>
-            <param name="item">用于补齐的元素</param>
             <returns></returns>
         </member>
         <member name="M:Ezreal.Extension.Core.IEnumerableExtension.PadRight``1(System.Collections.Generic.IEnumerable{``0},System.Int32)">
@@ -122,6 +200,11 @@
             <param name="quotes">引号，默认不带引号，范例：单引号 "'"</param>
             <param name="separator">分隔符，默认使用逗号分隔</param>
         </member>
+        <member name="T:Ezreal.Extension.Core.DataSetExtension">
+            <summary>
+            <see cref="T:System.Data.DataSet"/>类型的扩展
+            </summary>
+        </member>
         <member name="M:Ezreal.Extension.Core.DataSetExtension.IsNullOrNoTables(System.Data.DataSet)">
             <summary>
             指示指定的<see cref="T:System.Data.DataSet"/>对象是 <see langword="null"/> 还是没有<see cref="T:System.Data.DataTable"/>的空集合
@@ -132,6 +215,11 @@
             <param name="ds">将被校验的<see cref="T:System.Data.DataSet"/>实例</param>
             <returns>如果<paramref name="ds"/> 参数为 <see langword="null"/> 或没有<see cref="T:System.Data.DataTable"/>的空集合，则为 <see langword="true"/>；否则为 <see langword="false"/>。</returns>
         </member>
+        <member name="T:Ezreal.Extension.Core.DataTableExtension">
+            <summary>
+            <see cref="T:System.Data.DataTable"/>类型的扩展
+            </summary>
+        </member>
         <member name="M:Ezreal.Extension.Core.DataTableExtension.IsNullOrNoRows(System.Data.DataTable)">
             <summary>
             指示指定的<see cref="T:System.Data.DataTable"/>对象是 <see langword="null"/> 还是没有<see cref="T:System.Data.DataRow"/>的空集合
@@ -141,6 +229,18 @@
             </summary>
             <param name="dt">将被校验的<see cref="T:System.Data.DataTable"/>实例</param>
             <returns>如果<paramref name="dt"/> 参数为 <see langword="null"/> 或没有<see cref="T:System.Data.DataRow"/>的空集合，则为 <see langword="true"/>；否则为 <see langword="false"/>。</returns>
+        </member>
+        <member name="T:Ezreal.Extension.Core.MethodInfoExtension">
+            <summary>
+            <see cref="T:System.Reflection.MethodInfo"/>类型的扩展
+            </summary>
+        </member>
+        <member name="M:Ezreal.Extension.Core.MethodInfoExtension.GetFullName(System.Reflection.MethodInfo)">
+            <summary>
+            返回方法的完整名称
+            </summary>
+            <param name="method">方法</param>
+            <returns></returns>
         </member>
         <member name="M:Ezreal.Extension.Core.EnumExtension.GetUnderlyingValue``1(System.Enum)">
             <summary>
@@ -158,6 +258,11 @@
             <param name="nameInstend">当枚举没有定义<see cref="T:System.ComponentModel.DescriptionAttribute"/>,是否用枚举名代替，默认使用</param>
             <returns>枚举的Description</returns>
         </member>
+        <member name="T:Ezreal.Extension.Core.StringExtension">
+            <summary>
+            stirng对象扩展
+            </summary>
+        </member>
         <member name="M:Ezreal.Extension.Core.StringExtension.IsNullOrEmpty(System.String)">
             <summary>
             指示指定的字符串是 <see langword="null" /> 还是<see cref="F:System.String.Empty"/> 字符串。
@@ -165,12 +270,26 @@
             <param name="value">要测试的字符串。</param>
             <returns>如果参数<paramref name="value"/>的值为<see langword="null"/>或者等同于<see cref="F:System.String.Empty"/>的空字符串,则返回<see langword="true"/>,否则返回<see langword="false"/></returns>
         </member>
+        <member name="M:Ezreal.Extension.Core.StringExtension.HasContent(System.String)">
+            <summary>
+            指示指定的字符串不为<see langword="null" /> 且不为<see cref="F:System.String.Empty"/>。
+            </summary>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
         <member name="M:Ezreal.Extension.Core.StringExtension.IsNullOrWhiteSpace(System.String)">
             <summary>
             指示指定的字符串是 <see langword="null" /> 还是<see cref="F:System.String.Empty"/> 字符串。
             </summary>
             <param name="value">要测试的字符串。</param>
             <returns>如果参数<paramref name="value"/>的值为<see langword="null"/>或者等同于<see cref="F:System.String.Empty"/>的空字符串或者仅由空白字符组成,则返回<see langword="true"/>,否则返回<see langword="false"/></returns>
+        </member>
+        <member name="M:Ezreal.Extension.Core.StringExtension.HasEffectiveContent(System.String)">
+            <summary>
+            指示指定的字符串不为<see langword="null" /> ，不为<see cref="F:System.String.Empty"/>，且不是仅由空白字符组成。
+            </summary>
+            <param name="value"></param>
+            <returns></returns>
         </member>
         <member name="M:Ezreal.Extension.Core.StringExtension.IsArabicNumber(System.String)">
             <summary>
@@ -197,6 +316,38 @@
             <param name="text">待转换的<see cref="T:System.String"/>实例</param>
             <param name="guid">承载转换后值的<see cref="T:System.Guid"/>实例</param>
             <returns>转换成功时返回<see langword="true"/>并可从<paramref name="guid"/>获取转换后的<see cref="T:System.Guid"/>实例</returns>
+        </member>
+        <member name="T:Ezreal.Extension.Core.TypeExtension">
+            <summary>
+            <see cref="T:System.Type"/>类型的扩展
+            </summary>
+        </member>
+        <member name="F:Ezreal.Extension.Core.TypeExtension.typeDefaultValueCache">
+            <summary>
+            类型的默认值缓存
+            </summary>
+        </member>
+        <member name="M:Ezreal.Extension.Core.TypeExtension.GetName(System.Type)">
+            <summary>
+            返回类型的名称（不含namespace）
+            </summary>
+            <param name="type">类型</param>
+            <returns></returns>
+        </member>
+        <member name="M:Ezreal.Extension.Core.TypeExtension.DefaultValue(System.Type)">
+            <summary>
+            返回类型的默认值
+            </summary>
+            <param name="type"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Ezreal.Extension.Core.TypeExtension.IsInheritFrom``1(System.Type)">
+            <summary>
+            是否可以从<typeparamref name="TBase"/>类型派生
+            </summary>
+            <typeparam name="TBase"></typeparam>
+            <param name="type"></param>
+            <returns></returns>
         </member>
         <member name="M:Ezreal.Extension.Core.TypeExtension.GetChildTypes(System.Type)">
             <summary>

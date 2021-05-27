@@ -13,13 +13,13 @@ namespace XUnitTest.Core.System
         [Theory]
         [InlineData(@"123", true)]
         [InlineData(@"12.3", false)]
-        [InlineData(@"123 ", false)]
-        void IsArabicNumber(string value, bool result)
+        [InlineData(@"123_", false)]
+       public void IsArabicNumber(string value, bool result)
         {
             Assert.True(value.IsArabicNumber() == result);
         }
         [Fact]
-        void ToNumber()
+        public void ToNumber()
         {
             string str = "12";
             Assert.True(str.ToNumber<byte>() == 12);
@@ -36,7 +36,7 @@ namespace XUnitTest.Core.System
             Assert.True(str.ToNumber<decimal>() == 12.3m);
         }
         [Fact]
-        void TryParseGuid()
+        public void TryParseGuid()
         {
             Guid g1 = Guid.NewGuid();
             string guidStr = g1.ToString();

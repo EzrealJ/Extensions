@@ -11,14 +11,21 @@ namespace XUnitTest.System.Collections.Generic
     public class IEnumerableExtensionTest
     {
         [Fact]
-        void IsNullOrNoItems()
+        public void IsNullOrNoItems()
         {
             List<string> a = new List<string>();
             Assert.True(a.IsNullOrNoItems());
         }
 
         [Fact]
-        void PadLeft()
+        public void HasItems()
+        {
+            List<string> a = new List<string>() { string.Empty};
+            Assert.True(a.HasItems());
+        }
+
+        [Fact]
+        public void PadLeft()
         {
             List<string> a = new List<string>() { "AAA" };
             var a1 = a.PadLeft(3);
@@ -31,7 +38,7 @@ namespace XUnitTest.System.Collections.Generic
         }
 
         [Fact]
-        void PadRight()
+        public void PadRight()
         {
             List<string> a = new List<string>() { "AAA" };
             var a1 = a.PadRight(3);
@@ -44,7 +51,7 @@ namespace XUnitTest.System.Collections.Generic
         }
 
         [Fact]
-        void Join()
+        public void JoinAsString()
         {
             List<string> a = new List<string>() { "AAA","BBB" };
             a.JoinAsString("'").ShouldBe("'AAA','BBB'");
