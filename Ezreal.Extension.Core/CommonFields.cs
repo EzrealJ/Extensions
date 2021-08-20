@@ -4,22 +4,73 @@ using System.Text;
 
 namespace Ezreal.Extension.Core
 {
-   internal class CommonFields
+    internal class CommonFields
     {
         /// <summary>
         /// 整数型类型
         /// <para>
-        /// 包含<see cref="Byte"/>、<see cref="SByte"/>、<see cref="Int16"/>、<see cref="UInt16"/>、<see cref="Int32"/>、<see cref="UInt32"/>、<see cref="Int64"/>、<see cref="UInt64"/>
+        /// <see cref="byte"/>、
+        /// <see cref="sbyte"/>、
+        /// <see cref="short"/>、
+        /// <see cref="ushort"/>、
+        /// <see cref="int"/>、
+        /// <see cref="uint"/>、
+        /// <see cref="long"/>、
+        /// <see cref="ulong"/>
         /// </para>
         /// </summary>
-        public static Type[] IntegerTypes { get; } = { typeof(byte), typeof(sbyte), typeof(short), typeof(ushort), typeof(int), typeof(uint),  typeof(long), typeof(ulong) };
+        public static Type[] IntegerTypes { get; } = {
+            typeof(byte),
+            typeof(sbyte),
+            typeof(short),
+            typeof(ushort),
+            typeof(int),
+            typeof(uint),
+            typeof(long),
+            typeof(ulong)
+        };
         /// <summary>
         /// 浮点型类型
         /// <para>
-        /// 包含<see cref="Single"/>、<see cref="Double"/>、<see cref="Decimal"/>
+        /// <see cref="float"/>、
+        /// <see cref="double"/>、
+        /// <see cref="decimal"/>
         /// </para>
         /// </summary>
-        public static Type[] FloatingPointTypes { get; } = { typeof(float), typeof(double), typeof(decimal) };
+        public static Type[] FloatingPointTypes { get; } = {
+            typeof(float),
+            typeof(double),
+            typeof(decimal)
+        };
+        /// <summary>
+        /// 数字类型
+        /// <para>
+        /// <see cref="byte"/>、
+        /// <see cref="sbyte"/>、
+        /// <see cref="short"/>、
+        /// <see cref="ushort"/>、
+        /// <see cref="int"/>、
+        /// <see cref="uint"/>、
+        /// <see cref="long"/>、
+        /// <see cref="ulong"/>、
+        /// <see cref="float"/>、
+        /// <see cref="double"/>、
+        /// <see cref="decimal"/>
+        /// </para>
+        /// </summary>
+        public static Type[] NumberTypes { get; } = {
+            typeof(byte),
+            typeof(sbyte),
+            typeof(short),
+            typeof(ushort),
+            typeof(int),
+            typeof(uint),
+            typeof(long),
+            typeof(ulong),
+            typeof(float),
+            typeof(double),
+            typeof(decimal)
+        };
+
     }
 }
- 

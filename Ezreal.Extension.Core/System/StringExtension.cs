@@ -45,7 +45,7 @@ namespace Ezreal.Extension.Core
         {
             if (string.IsNullOrWhiteSpace(text))
             {
-                throw new ArgumentException("message", nameof(text));
+                throw new ArgumentException($"“{nameof(text)}”不能为 null 或空白。", nameof(text));
             }
             //return System.Text.RegularExpressions.Regex.IsMatch(text.Trim(), @"^[0-9]*$");
             return text.All(t => t >= '0' && t <= '9');
@@ -65,20 +65,14 @@ namespace Ezreal.Extension.Core
         {
             if (string.IsNullOrWhiteSpace(text))
             {
-                throw new ArgumentException("message", nameof(text));
+                throw new ArgumentException($"“{nameof(text)}”不能为 null 或空白。", nameof(text));
+            }
+
+            if (CommonFields.NumberTypes.Contains(typeof(T)))
+            {
+                throw new NotSupportedException("不支持的目标类型");
             }
             return (T)Convert.ChangeType(text, typeof(T));
-        }
-
-        /// <summary>
-        /// 尝试将字符串转化成<see cref="Guid"/>
-        /// </summary>
-        /// <param name="text">待转换的<see cref="string"/>实例</param>
-        /// <param name="guid">承载转换后值的<see cref="Guid"/>实例</param>
-        /// <returns>转换成功时返回<see langword="true"/>并可从<paramref name="guid"/>获取转换后的<see cref="Guid"/>实例</returns>
-        public static bool TryParseGuid(this string text,out Guid guid)
-        {
-            return Guid.TryParse(text, out guid);
         }
     }
 }

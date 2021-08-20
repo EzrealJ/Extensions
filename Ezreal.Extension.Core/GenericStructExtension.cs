@@ -78,7 +78,10 @@ namespace Ezreal.Extension.Core
     where TEnum : Enum /*struct, IComparable, IConvertible, IFormattable*/
     where TUnderlyingType : struct, IComparable, IComparable<TUnderlyingType>, IConvertible, IEquatable<TUnderlyingType>, IFormattable
         {
-            if (!CommonFields.IntegerTypes.Contains(typeof(TUnderlyingType))) throw new Exception($"Enumeration type cannot be {typeof(TUnderlyingType).Name}");
+            if (!CommonFields.IntegerTypes.Contains(typeof(TUnderlyingType)))
+            {
+                throw new Exception($"Enumeration type cannot be {typeof(TUnderlyingType).Name}");
+            }
 
             if (Enum.GetUnderlyingType(typeof(TEnum)) == typeof(TUnderlyingType))
             {

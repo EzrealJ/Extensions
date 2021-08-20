@@ -7,6 +7,9 @@ using System.Text;
 
 namespace Ezreal.Extension.Core
 {
+    /// <summary>
+    /// 枚举类扩展
+    /// </summary>
     public static class EnumExtension
     {
 

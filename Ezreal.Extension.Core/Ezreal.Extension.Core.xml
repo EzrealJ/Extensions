@@ -8,7 +8,14 @@
             <summary>
             整数型类型
             <para>
-            包含<see cref="T:System.Byte"/>、<see cref="T:System.SByte"/>、<see cref="T:System.Int16"/>、<see cref="T:System.UInt16"/>、<see cref="T:System.Int32"/>、<see cref="T:System.UInt32"/>、<see cref="T:System.Int64"/>、<see cref="T:System.UInt64"/>
+            <see cref="T:System.Byte"/>、
+            <see cref="T:System.SByte"/>、
+            <see cref="T:System.Int16"/>、
+            <see cref="T:System.UInt16"/>、
+            <see cref="T:System.Int32"/>、
+            <see cref="T:System.UInt32"/>、
+            <see cref="T:System.Int64"/>、
+            <see cref="T:System.UInt64"/>
             </para>
             </summary>
         </member>
@@ -16,7 +23,27 @@
             <summary>
             浮点型类型
             <para>
-            包含<see cref="T:System.Single"/>、<see cref="T:System.Double"/>、<see cref="T:System.Decimal"/>
+            <see cref="T:System.Single"/>、
+            <see cref="T:System.Double"/>、
+            <see cref="T:System.Decimal"/>
+            </para>
+            </summary>
+        </member>
+        <member name="P:Ezreal.Extension.Core.CommonFields.NumberTypes">
+            <summary>
+            数字类型
+            <para>
+            <see cref="T:System.Byte"/>、
+            <see cref="T:System.SByte"/>、
+            <see cref="T:System.Int16"/>、
+            <see cref="T:System.UInt16"/>、
+            <see cref="T:System.Int32"/>、
+            <see cref="T:System.UInt32"/>、
+            <see cref="T:System.Int64"/>、
+            <see cref="T:System.UInt64"/>、
+            <see cref="T:System.Single"/>、
+            <see cref="T:System.Double"/>、
+            <see cref="T:System.Decimal"/>
             </para>
             </summary>
         </member>
@@ -67,6 +94,7 @@
         </member>
         <member name="M:Ezreal.Extension.Core.GenericClassExtension.NotNull``1(``0)">
             <summary>
+            <para>在C#9可用时，建议使用<see langword="is"/> <see langword="not"/> <see langword="null"/></para>
             指示指定的引用类型对象是否不为<see langword="null"/>
             </summary>
             <typeparam name="T"></typeparam>
@@ -156,41 +184,6 @@
             <param name="collection"></param>
             <returns></returns>
         </member>
-        <member name="M:Ezreal.Extension.Core.IEnumerableExtension.PadLeft``1(System.Collections.Generic.IEnumerable{``0},System.Int32)">
-            <summary>
-            返回使用默认元素将序列向列首补齐得到的新序列
-            </summary>
-            <param name="collection">原有序列</param>
-            <param name="count">新序列的元素总数</param>
-            <returns></returns>
-        </member>
-        <member name="M:Ezreal.Extension.Core.IEnumerableExtension.PadRight``1(System.Collections.Generic.IEnumerable{``0},System.Int32)">
-            <summary>
-            返回使用默认元素将序列向列尾补齐得到的新序列
-            </summary>
-            <param name="collection">原有序列</param>
-            <param name="count">新序列的元素总数</param>
-            <param name="item">用于补齐的元素</param>
-            <returns></returns>
-        </member>
-        <member name="M:Ezreal.Extension.Core.IEnumerableExtension.PadLeft``1(System.Collections.Generic.IEnumerable{``0},System.Int32,``0)">
-            <summary>
-            返回使用指定元素将序列向列首补齐得到的新序列
-            </summary>
-            <param name="collection">原有序列</param>
-            <param name="count">新序列的元素总数</param>
-            <param name="item">用于补齐的元素</param>
-            <returns></returns>
-        </member>
-        <member name="M:Ezreal.Extension.Core.IEnumerableExtension.PadRight``1(System.Collections.Generic.IEnumerable{``0},System.Int32,``0)">
-            <summary>
-            返回使用指定元素将序列向列尾补齐得到的新序列
-            </summary>
-            <param name="collection">原有序列</param>
-            <param name="count">新序列的元素总数</param>
-            <param name="item">用于补齐的元素</param>
-            <returns></returns>
-        </member>
         <member name="M:Ezreal.Extension.Core.IEnumerableExtension.JoinAsString``1(System.Collections.Generic.IEnumerable{``0},System.String,System.String)">
             <summary>
             将集合连接为带分隔符的字符串
@@ -241,6 +234,11 @@
             </summary>
             <param name="method">方法</param>
             <returns></returns>
+        </member>
+        <member name="T:Ezreal.Extension.Core.EnumExtension">
+            <summary>
+            枚举类扩展
+            </summary>
         </member>
         <member name="M:Ezreal.Extension.Core.EnumExtension.GetUnderlyingValue``1(System.Enum)">
             <summary>
@@ -308,14 +306,6 @@
             <typeparam name="T"></typeparam>
             <param name="text"></param>
             <returns></returns>
-        </member>
-        <member name="M:Ezreal.Extension.Core.StringExtension.TryParseGuid(System.String,System.Guid@)">
-            <summary>
-            尝试将字符串转化成<see cref="T:System.Guid"/>
-            </summary>
-            <param name="text">待转换的<see cref="T:System.String"/>实例</param>
-            <param name="guid">承载转换后值的<see cref="T:System.Guid"/>实例</param>
-            <returns>转换成功时返回<see langword="true"/>并可从<paramref name="guid"/>获取转换后的<see cref="T:System.Guid"/>实例</returns>
         </member>
         <member name="T:Ezreal.Extension.Core.TypeExtension">
             <summary>

@@ -35,15 +35,7 @@ namespace XUnitTest.Core.System
             Assert.True(str.ToNumber<double>() == 12.3d);
             Assert.True(str.ToNumber<decimal>() == 12.3m);
         }
-        [Fact]
-        public void TryParseGuid()
-        {
-            Guid g1 = Guid.NewGuid();
-            string guidStr = g1.ToString();
-            guidStr.TryParseGuid(out Guid g2).ShouldBe(true);
-            g1.ShouldBe(g2);
 
-        }
 
     }
 }
