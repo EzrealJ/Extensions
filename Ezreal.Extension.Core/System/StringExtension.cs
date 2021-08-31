@@ -68,7 +68,7 @@ namespace Ezreal.Extension.Core
                 throw new ArgumentException($"“{nameof(text)}”不能为 null 或空白。", nameof(text));
             }
 
-            if (CommonFields.NumberTypes.Contains(typeof(T)))
+            if (!CommonFields.NumberTypes.Contains(typeof(T)))
             {
                 throw new NotSupportedException("不支持的目标类型");
             }

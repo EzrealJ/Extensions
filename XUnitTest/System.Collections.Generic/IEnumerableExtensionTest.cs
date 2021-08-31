@@ -24,31 +24,8 @@ namespace XUnitTest.System.Collections.Generic
             Assert.True(a.HasItems());
         }
 
-        [Fact]
-        public void PadLeft()
-        {
-            List<string> a = new List<string>() { "AAA" };
-            var a1 = a.PadLeft(3);
-            a1.FirstOrDefault().ShouldBeNull();
-            a1.LastOrDefault().ShouldBe("AAA");
-            var a2 = a.PadLeft(3, "BBB");
-            a2.FirstOrDefault().ShouldBe("BBB");
-            a2.LastOrDefault().ShouldBe("AAA");
 
-        }
 
-        [Fact]
-        public void PadRight()
-        {
-            List<string> a = new List<string>() { "AAA" };
-            var a1 = a.PadRight(3);
-            a1.LastOrDefault().ShouldBeNull();
-            a1.FirstOrDefault().ShouldBe("AAA");
-            var a2 = a.PadRight(3, "BBB");
-            a2.LastOrDefault().ShouldBe("BBB");
-            a2.FirstOrDefault().ShouldBe("AAA");
-
-        }
 
         [Fact]
         public void JoinAsString()

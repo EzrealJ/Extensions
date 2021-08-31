@@ -11,12 +11,12 @@
     <PackageProjectUrl>https://github.com/EzrealJ/Extensions</PackageProjectUrl>
     <PackageTags>Extensions</PackageTags>
     <PackageReleaseNotes>Ezreal.Extension.Core只包含基本的扩展</PackageReleaseNotes>
-    <FileVersion>0.1.2</FileVersion>
-    <AssemblyVersion>0.1.2</AssemblyVersion>
+    <FileVersion>0.1.2.1</FileVersion>
+    <AssemblyVersion>0.1.2.1</AssemblyVersion>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <RepositoryUrl>https://github.com/EzrealJ/Extensions</RepositoryUrl>
     <Copyright>Ezreal</Copyright>
-    <Version>0.1.2</Version>
+    <Version>0.1.2.1</Version>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|netstandard2.0|AnyCPU'">
