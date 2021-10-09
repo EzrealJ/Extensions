@@ -43,7 +43,8 @@ Config
   "EzrealHttpLogging": {
     "ReadBody": true,
     "IgnoreWhenNoError": false,
-    "LogLevel": "Information" //logging if Ezreal.Extension.AspNetCoreHttpLogging LogLevel Enable this node value
+     //logging if Ezreal.Extension.AspNetCoreHttpLogging LogLevel Enable this LogLevel
+    "LogLevel": "Information" 
   }
 }
 ```
