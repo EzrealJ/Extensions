@@ -1,0 +1,83 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Ezreal.Extension.AspNetCoreHttpLogging</name>
+    </assembly>
+    <members>
+        <member name="M:Microsoft.AspNetCore.Builder.ApplicationBuilderExtensions.UseEzrealHttpLogging(Microsoft.AspNetCore.Builder.IApplicationBuilder)">
+            <summary>
+            Adds a middleware that can log HTTP requests and responses.
+            </summary>
+            <param name="app">The <see cref="T:Microsoft.AspNetCore.Builder.IApplicationBuilder"/> instance this method extends.</param>
+            <returns>The <see cref="T:Microsoft.AspNetCore.Builder.IApplicationBuilder"/>.</returns>
+        </member>
+        <member name="M:Ezreal.Extension.AspNetCoreHttpLogging.HttpLoggingMiddleware.Invoke(Microsoft.AspNetCore.Http.HttpContext)">
+            <summary>
+            Invokes the <see cref="T:Ezreal.Extension.AspNetCoreHttpLogging.HttpLoggingMiddleware" />.
+            </summary>
+            <param name="context"></param>
+            <returns></returns>HttpResponseLog.cs
+        </member>
+        <member name="M:Ezreal.Extension.AspNetCoreHttpLogging.HttpLoggingMiddleware.ReplaceResponseBody(System.IO.MemoryStream,Microsoft.AspNetCore.Http.HttpResponse)">
+            <summary>
+            替换HttpResponse的Body
+            </summary>
+            <param name="canReadResponseStream">可重读的流</param>
+            <param name="response">响应</param>
+            <param name="originalResponseBody">原本的流</param>
+            <returns></returns>
+        </member>
+        <member name="M:Ezreal.Extension.AspNetCoreHttpLogging.HttpLoggingMiddleware.ReductionResponseBody(Microsoft.AspNetCore.Http.HttpResponse,System.IO.Stream)">
+            <summary>
+            还原HttpResponse的Body
+            </summary>
+            <param name="canReadResponseStream">可重读的流</param>
+            <param name="response">响应</param>
+            <param name="originalResponseBody">原本的流</param>
+            <returns></returns>
+        </member>
+        <member name="P:Ezreal.Extension.AspNetCoreHttpLogging.HttpLoggingOptions.ModuleName">
+            <summary>
+            模块名称
+            </summary>
+        </member>
+        <member name="P:Ezreal.Extension.AspNetCoreHttpLogging.HttpLoggingOptions.ReadBody">
+            <summary>
+            记录日志时包含Body
+            <para>注意,读取Body会影响性能,若非必要不要记录Body</para>
+            </summary>
+        </member>
+        <member name="P:Ezreal.Extension.AspNetCoreHttpLogging.HttpLoggingOptions.IgnoreWhenNoError">
+            <summary>
+            没有错误发生时不记录
+            </summary>
+        </member>
+        <member name="P:Ezreal.Extension.AspNetCoreHttpLogging.HttpLoggingOptions.MatchMode">
+            <summary>
+            匹配模式
+            </summary>
+        </member>
+        <member name="P:Ezreal.Extension.AspNetCoreHttpLogging.HttpLoggingOptions.SegmentedString">
+            <summary>
+            日志区域分割字符串
+            </summary>
+        </member>
+        <member name="F:Ezreal.Extension.AspNetCoreHttpLogging.HttpLoggingOptions.EnumMatchMode.Ignore">
+            <summary>
+            忽略模式
+            </summary>
+        </member>
+        <member name="F:Ezreal.Extension.AspNetCoreHttpLogging.HttpLoggingOptions.EnumMatchMode.Include">
+            <summary>
+            包含模式
+            </summary>
+        </member>
+        <member name="M:Ezreal.Extension.AspNetCoreHttpLogging.HttpLoggingOptions.IsMatch(Microsoft.AspNetCore.Http.PathString)">
+            <summary>
+            当前的PathString是否匹配记录日志的规则 
+            </summary>
+            <param name="pathString"></param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

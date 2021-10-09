@@ -19,19 +19,5 @@
     <Version>0.1.2.1</Version>
   </PropertyGroup>
 
-  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|netstandard2.0|AnyCPU'">
-    <DocumentationFile>C:\Users\Ezreal\Documents\GitHub\Extensions\Ezreal.Extension.Core\Ezreal.Extension.Core.xml</DocumentationFile>
-  </PropertyGroup>
-
-  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|netstandard2.0|AnyCPU'">
-    <DocumentationFile>C:\Users\Ezreal\Documents\GitHub\Extensions\Ezreal.Extension.Core\Ezreal.Extension.Core.xml</DocumentationFile>
-  </PropertyGroup>
-
-  <ItemGroup>
-    <None Update="Ezreal.Extension.Core.xml">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-  </ItemGroup>
-
 
 </Project>
