@@ -43,10 +43,12 @@ namespace Ezreal.Extension.AspNetCoreHttpLogging
 
         private async Task InvokeInternal(HttpContext context)
         {
-            using MemoryStream canReadResponseStream = new MemoryStream();
+            using MemoryStream canReadResponseStream = new();
             HttpResponse response = context.Response;
             Stream originalResponseBody = ReplaceResponseBody(canReadResponseStream, response);
             Stopwatch stopwatch = Stopwatch.StartNew();
+            HttpRequest request = context.Request;
+            request.EnableBuffering();
             Exception ex = null;
             try
             {
@@ -65,7 +67,6 @@ namespace Ezreal.Extension.AspNetCoreHttpLogging
                 await ReductionResponseBody(response, originalResponseBody);
                 return;
             }
-            HttpRequest request = context.Request;
             PathString path = request.Path;
             if (!options.IsMatch(path))
             {
@@ -111,7 +112,6 @@ namespace Ezreal.Extension.AspNetCoreHttpLogging
             stringBuilder.AppendLine("▼-Request Payload");
             if (options.ReadBody)
             {                
-                request.EnableBuffering();
                 using (StreamReader reader = new(request.Body))
                 {
                     request.Body.Seek(0, SeekOrigin.Begin);
@@ -162,8 +162,7 @@ namespace Ezreal.Extension.AspNetCoreHttpLogging
         /// </summary>
         /// <param name="canReadResponseStream">可重读的流</param>
         /// <param name="response">响应</param>
-        /// <param name="originalResponseBody">原本的流</param>
-        /// <returns></returns>
+        /// <returns>原本的流</returns>
         private Stream ReplaceResponseBody(MemoryStream canReadResponseStream, HttpResponse response)
         {
             Stream originalResponseBody = null;
@@ -178,7 +177,6 @@ namespace Ezreal.Extension.AspNetCoreHttpLogging
         /// <summary>
         /// 还原HttpResponse的Body
         /// </summary>
-        /// <param name="canReadResponseStream">可重读的流</param>
         /// <param name="response">响应</param>
         /// <param name="originalResponseBody">原本的流</param>
         /// <returns></returns>
